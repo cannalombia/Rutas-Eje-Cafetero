@@ -25,16 +25,16 @@
 
 ## Issue #2 · G2 Componentes
 
-**Consulté:** _enlace(s)_ → _qué encontré_
+**Consulté:** [index.html](./index.html), [datos.js](./js/datos.js) y el navegador en vista móvil → revisé cómo se conecta el botón con el menú, cómo cambia `aria-expanded` y cómo está escrito el tipo `cafe`.
 
 1. **Explica:** ¿qué relación hay entre `data-bs-target="#menu"` en el botón y el `id="menu"` del div? ¿Quién lee ese atributo?
-   _Tu respuesta_
+   `data-bs-target="#menu"` apunta al elemento que tiene `id="menu"`. Bootstrap lee ese atributo cuando se pulsa el botón y abre o cierra ese bloque del menú.
 
 2. **Experimenta:** abre y cierra el menú en un ancho de celular y observa en DevTools el atributo `aria-expanded` del botón. ¿Qué pasa con su valor? ¿Para quién es útil esa información?
-   _Tu respuesta_
+   Con el menú cerrado, `aria-expanded` tenía el valor `false`. Después de abrirlo cambió a `true`; esta información permite que un lector de pantalla comunique si el menú está desplegado o cerrado.
 
 3. **¿Qué pasaría si…** en un botón de filtro escribes `data-tipo="café"` (con tilde)? Piensa en lo que hay en `datos.js` antes de responder.
-   _Tu respuesta_
+   No coincidiría con las rutas porque en `datos.js` el tipo está escrito como `cafe`, sin tilde. Como la comparación usa el valor exacto, el filtro `café` no encontraría resultados.
 
 ---
 
