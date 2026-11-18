@@ -81,15 +81,16 @@
 
 ---
 
+<!-- RETO · Pregunta 4: respuestas de comprensión -->
 ## Reto · Ordenar rutas
 
-**Consulté:** _enlace(s)_ → _qué encontré_
+**Consulté:** `RETO.md` y las pruebas propias de `tests/reto.test.js` → repasé las reglas del reto, la copia del arreglo, los comparadores y los casos que comprueban el resultado.
 
 1. **Explica:** ¿por qué `ordenarRutas` hace `const copia = [...lista]` antes de `sort()`? ¿Qué le pasaría a `rutas` si no se copia? ¿Qué prueba tuya lo demuestra?
-   _Tu respuesta_
+   `sort()` cambia el mismo arreglo en el que se ejecuta. Por eso primero copio `lista`: el ordenamiento no altera los datos originales ni afecta otros usos de `rutas`. La prueba “no modifica la lista original” compara la lista con su orden guardado antes de llamar a la función.
 
 2. **Explica:** en `copia.sort((a, b) => a.precio - b.precio)`, ¿qué significa que la función devuelva un número negativo, cero o positivo?
-   _Tu respuesta_
+   Un valor negativo indica que `a` va antes que `b`; uno positivo, que `b` va antes que `a`; y cero indica que tienen el mismo valor de comparación. Al restar los precios, los menores quedan primero y las rutas gratis aparecen al inicio.
 
 3. **Tus pruebas:** elige una de tus pruebas y explica qué error de programación detectaría si alguien dañara la función.
-   _Tu respuesta_
+   La prueba de duración detectaría si se ordenan de mayor a menor, si se compara otra propiedad o si se usa un criterio incorrecto: espera que las duraciones queden `[1, 2, 3, 5]`. La prueba de nombres también comprueba que las tildes se ordenen con la comparación en español.

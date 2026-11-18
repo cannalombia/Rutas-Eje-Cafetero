@@ -68,7 +68,22 @@ function normalizar(texto) {
  *      y el precio con ${formatearPrecio(ruta.precio)}
  * ============================================================ */
 function crearCard(ruta) {
-  // TODO: implementar
+  return `
+    <div class="col">
+      <article class="card h-100 ruta-card">
+        <img src="${ruta.imagen}" class="card-img-top" alt="">
+        <div class="card-body">
+          <span class="badge badge-${ruta.tipo}">${ETIQUETAS_TIPO[ruta.tipo]}</span>
+          <h3 class="card-title h5 mt-2">${ruta.nombre}</h3>
+          <p class="card-subtitle mb-2 text-body-secondary">${ruta.municipio}, ${ruta.departamento}</p>
+          <p class="card-text">${ruta.descripcion}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <span>${ruta.duracionHoras} h</span>
+          <strong class="precio">${formatearPrecio(ruta.precio)}</strong>
+        </div>
+      </article>
+    </div>`;
 }
 
 /* ============================================================
@@ -95,7 +110,13 @@ function crearCard(ruta) {
  *        mensaje.textContent = `${lista.length} rutas encontradas`
  * ============================================================ */
 function pintarRutas(lista, contenedor, mensaje) {
-  // TODO: implementar
+  contenedor.innerHTML = lista.map(crearCard).join('');
+
+  if (lista.length === 0) {
+    mensaje.textContent = 'No encontramos rutas con ese filtro. Prueba con otra búsqueda.';
+  } else {
+    mensaje.textContent = `${lista.length} rutas encontradas`;
+  }
 }
 
 /* ============================================================
@@ -140,26 +161,38 @@ function buscarPorTexto(lista, texto) {
 }
 
 /* ============================================================
- * RETO · ordenarRutas(lista, criterio) -> nuevo arreglo ordenado
+ * RETO · Pregunta 1: ordenarRutas(lista, criterio) -> nuevo arreglo ordenado
  * Enunciado completo, rúbrica y enlaces de consulta en RETO.md.
  * Tus pruebas van en tests/reto.test.js.
  * ============================================================ */
 function ordenarRutas(lista, criterio) {
-  // TODO: implementar (RETO)
+  const copia = [...lista];
+
+  if (criterio === 'nombre') {
+    return copia.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+  }
+  if (criterio === 'precio') {
+    return copia.sort((a, b) => a.precio - b.precio);
+  }
+  if (criterio === 'duracion') {
+    return copia.sort((a, b) => a.duracionHoras - b.duracionHoras);
+  }
+
+  return copia;
 }
 
 /* ============================================================
- * Estado de la interfaz + aplicarFiltros()  (ya resuelto)
+ * RETO · Pregunta 3: estado de la interfaz + aplicarFiltros()
  * El estado guarda qué eligió la persona. Cada evento cambia el
  * estado y vuelve a pintar todo desde los DATOS.
  * ============================================================ */
-const estado = { tipo: 'todos', texto: '' };
+const estado = { tipo: 'todos', texto: '', orden: '' };
 
 function aplicarFiltros() {
   // ?? rutas -> mientras una función no esté implementada (devuelve undefined), se usan todas las rutas
   let resultado = filtrarPorTipo(rutas, estado.tipo) ?? rutas;
   resultado = buscarPorTexto(resultado, estado.texto) ?? resultado;
-  // RETO: aquí también se aplica ordenarRutas(resultado, estado.orden)
+  resultado = ordenarRutas(resultado, estado.orden);
   pintarRutas(resultado, document.querySelector('#lista-rutas'), document.querySelector('#resultado'));
 }
 
@@ -197,6 +230,12 @@ function iniciar() {
   // TODO G4.3 - paso 1: eventos 'click' de los botones
 
   // TODO G4.3 - paso 2: evento 'input' del buscador
+
+  // RETO · Pregunta 3: actualizar el orden cuando cambia el selector.
+  document.querySelector('#orden').addEventListener('change', (evento) => {
+    estado.orden = evento.target.value;
+    aplicarFiltros();
+  });
 
   aplicarFiltros(); // pinta todas las rutas al cargar
 }
