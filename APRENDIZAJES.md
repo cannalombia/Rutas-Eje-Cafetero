@@ -40,7 +40,7 @@
 
 ## Issue #3 · G3 Datos → tarjetas
 
-**Consulté:** _enlace(s)_ → _qué encontré_
+**Consulté:** [app.js](./js/app.js), [datos.js](./js/datos.js) y la consola → comprobé cómo `map()` crea un arreglo, cómo `join()` lo une y cómo las plantillas insertan los datos de cada ruta.
 
 1. **Predice y comprueba:** antes de ejecutarlas en la consola del navegador, escribe qué crees que devuelve cada línea. Después ejecútalas y anota el resultado real.
    ```js
