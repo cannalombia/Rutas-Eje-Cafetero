@@ -66,16 +66,16 @@
 
 ## Issue #4 · G4 Filtros y eventos
 
-**Consulté:** _enlace(s)_ → _qué encontré_
+**Consulté:** [app.js](./js/app.js), [datos.js](./js/datos.js) y las pruebas de G4 → revisé cómo `filter()` devuelve un arreglo nuevo y cómo los eventos actualizan el estado de la interfaz.
 
 1. **Predice y comprueba:** después de ejecutar `filtrarPorTipo(rutas, 'cafe')` en la consola, ¿cuánto vale `rutas.length`? ¿Por qué?
-   _Tu respuesta_
+   `rutas.length` sigue valiendo `11` porque `filter()` crea un arreglo nuevo con las rutas de café. La función no elimina ni modifica elementos del arreglo original.
 
 2. **Explica el recorrido:** describe paso a paso qué pasa desde que la persona hace clic en el botón "Cultura" hasta que aparecen las tarjetas nuevas. Menciona: el evento, `estado`, `aplicarFiltros()`, `filtrarPorTipo()` y `pintarRutas()`.
-   _Tu respuesta_
+   El evento `click` guarda `cultura` en `estado.tipo` y llama a `aplicarFiltros()`. Esta función usa `filtrarPorTipo()` y luego `pintarRutas()` reemplaza el contenido con las tarjetas que cumplen el filtro.
 
 3. **¿Qué pasaría si…** usas el evento `'change'` en lugar de `'input'` en el buscador? Pruébalo y describe la diferencia.
-   _Tu respuesta_
+   Con `input` los resultados cambian mientras escribo. Con `change` la búsqueda espera hasta que confirmo el cambio o salgo del campo, por lo que la respuesta de la interfaz se siente más lenta.
 
 ---
 
