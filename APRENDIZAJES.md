@@ -51,16 +51,16 @@
    ```
    | Línea | Mi predicción | Resultado real |
    |---|---|---|
-   | 1 | | |
-   | 2 | | |
-   | 3 | | |
-   | 4 | | |
+   | 1 | `[10, 20, 30]` | `[10, 20, 30]` |
+   | 2 | `abc` | `abc` |
+   | 3 | `a - b - c` | `a - b - c` |
+   | 4 | `11` | `11` |
 
 2. **Experimenta y explica:** quita temporalmente `.join('')` de `pintarRutas`. ¿Qué aparece entre las tarjetas y por qué? (Pista: ¿qué hace `innerHTML` cuando le asignas un arreglo?). Vuelve a ponerlo.
-   _Tu respuesta_
+   Aparecen comas entre las tarjetas porque `map()` devuelve un arreglo. Cuando `innerHTML` recibe ese arreglo lo convierte en texto usando comas; `.join('')` une todos los fragmentos sin separadores.
 
 3. **Explica:** ¿por qué la tarjeta se escribe con comillas invertidas `` ` `` y no con comillas simples `' '`? ¿Qué hace `${ }`?
-   _Tu respuesta_
+   Las comillas invertidas permiten escribir HTML en varias líneas e insertar valores dentro del texto. `${ }` evalúa una expresión, como `ruta.nombre`, y coloca su resultado en la tarjeta.
 
 ---
 
