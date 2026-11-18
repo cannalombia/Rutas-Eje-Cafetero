@@ -6,24 +6,22 @@
 >
 > Este archivo forma parte de la calificación del reto (criterio *Comprensión*).
 
-**Aprendiz:** _tu nombre_
+**Aprendiz:** Andres Felipe Pinzon Del Valle
 
 ---
 
 ## Issue #1 · G1 Guía de estilo
 
-**Consulté:** _enlace(s)_ → _qué encontré_
+**Consulté:** `Actividad.pdf`, `Diapositivas.pdf`, [ISSUES.md](./ISSUES.md), [estilos.css](./css/estilos.css) y DevTools → revisé cómo se definen las variables, el contraste mínimo y las variables que usa cada botón de Bootstrap.
 
 1. **Explica:** ¿qué ventaja tiene escribir los colores como variables en `:root` en vez de escribir el hex directamente en cada regla?
-   _Tu respuesta_
+   Así puedo usar el mismo color en varias partes del sitio y, si quiero cambiarlo, solo modifico su valor una vez en `:root`.
 
 2. **Experimenta y explica:** en DevTools selecciona el botón "Ver rutas", pestaña *Computed* (o *Calculado*) y busca `--bs-btn-bg`. ¿De dónde sale su valor? ¿Por qué cambiar `--bs-primary` no habría cambiado el color del botón?
-   _Tu respuesta_
+   El verde sale de `--eje-primario`, que se asigna a `--bs-btn-bg` dentro de `.btn-primary`. Cambiar `--bs-primary` no afectaría el botón porque el componente lee su propia variable `--bs-btn-bg`.
 
 3. **¿Qué pasaría si…** enlazas `estilos.css` ANTES de `bootstrap.min.css` en el `<head>`? Pruébalo, describe lo que ves y vuelve a dejarlo como estaba.
-   _Tu respuesta_
-
----
+   Al poner Bootstrap después de mi CSS, el botón dejó de verse con el verde que elegí y volvió al azul de Bootstrap. Después restablecí el orden original, con Bootstrap primero y `estilos.css` después, para conservar el diseño.
 
 ## Issue #2 · G2 Componentes
 
