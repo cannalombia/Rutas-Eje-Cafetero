@@ -6,7 +6,7 @@ y se pueden filtrar por tipo y buscar por nombre o municipio.
 
 - **Aprendiz:** _Andres Felipe Pinzon Del Valle_
 - **Ficha:** 3349882 · Tecnólogo en Análisis y Desarrollo de Software · SENA CDITI
-- **Sitio publicado (GitHub Pages):** https://cannalombia.github.io/Rutas-Eje-Cafetero/
+- **Sitio publicado (GitHub Pages):** [Ver Rutas del Eje](https://cannalombia.github.io/Rutas-Eje-Cafetero/)
 
 - **Lo que aprendí:** ver [APRENDIZAJES.md](APRENDIZAJES.md)
 
